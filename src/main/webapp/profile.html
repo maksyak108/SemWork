@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link rel="stylesheet" type="text/css" href="profile.css">
+    <style>
+        .background{
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+        }
+        .name{
+            color: white;
+            left: auto;
+            top: 250px;
+            position: absolute;
+            padding: 10px;
+            width: 1200px;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 8px 10px;
+
+            border: 0;
+            background-color: grey;
+            cursor: pointer;
+
+            font-family: inherit;
+            font-size: 16px;
+            color: #fff;
+        }
+
+        .btn:hover {
+            background-color: black;
+        }
+    </style>
+</head>
+<body class="background" background="книги.jpeg">
+<ul class="menu-bar">
+    <li><a href="mainPage.html">Главная</a></li>
+    <li><a href="whatToRead.html">Что почитать</a></li>
+    <li><a href="genre.html">Жанры</a></li>
+    <li><a href="forKids.html">Для детей</a></li>
+    <li><a href="search.html">Поиск</a></li>
+    <li><a href="\logout">Выйти</a></li>
+</ul>
+<font class="name" color="white" size="12" face="Comic Sans MS">
+    Хотите оставить отзыв на прочитанную книгу?
+    <form><button class="btn" type="submit" formaction="\review.html">Да!</button></form>
+</font>
+</body>
+</html>
