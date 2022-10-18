@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <style>
+        .background {
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 8px 10px;
+
+            border: 0;
+            background-color: #1cbc11;
+            cursor: pointer;
+
+            font-family: inherit;
+            font-size: 16px;
+            color: #fff;
+        }
+
+        .btn:hover {
+            background-color: #14a20a;
+        }
+    </style>
+</head>
+<body class="background" background="книги.jpeg">
+<dialog open >
+    <p>Неправильный логин или пароль.Попробуйте снова.</p>
+    <form>
+        <button class="btn" type="submit" formaction="/login.html">OK</button>
+    </form>
+</dialog>
+</body>
+</html>
