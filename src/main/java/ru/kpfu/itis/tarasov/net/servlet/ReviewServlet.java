@@ -2,12 +2,11 @@ package ru.kpfu.itis.tarasov.net.servlet;
 
 import ru.kpfu.itis.tarasov.net.dao.BookDao;
 import ru.kpfu.itis.tarasov.net.dao.ClientReviewDao;
-import ru.kpfu.itis.tarasov.net.dao.PasswordDao;
 import ru.kpfu.itis.tarasov.net.model.Book;
 
 import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,7 +26,7 @@ public class ReviewServlet extends HttpServlet {
         String name = req.getParameter("name");
         String review = req.getParameter("review");
         String score = req.getParameter("score");
-        ArrayList<Book> books = new BookDao().getinfo();
+        List<Book> books = new BookDao().getinfo();
         String result = null;
         for (int i = 0; i < books.size(); i++){
             if(books.get(i).getName().equals(name)){
@@ -35,9 +34,9 @@ public class ReviewServlet extends HttpServlet {
             }
         }
         if(result != null){
-            resp.sendRedirect("index.html");
+            resp.sendRedirect("profile.html");
         }else {
-            resp.sendRedirect("modalError.html");
+            resp.sendRedirect("404.html");
         }
     }
 }

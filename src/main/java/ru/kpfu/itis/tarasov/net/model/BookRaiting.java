@@ -5,19 +5,22 @@ public class BookRaiting {
     private int bookId;
     private int numberOfReviews;
     private String mark;
+    private String name;
 
 
-    public BookRaiting(int id, int bookId, int numberOfReviews, String mark) {
+    public BookRaiting(int id, int bookId, int numberOfReviews, String mark, String name) {
         this.id = id;
         this.bookId = bookId;
         this.numberOfReviews = numberOfReviews;
         this.mark = mark;
+        this.name = name;
     }
 
-    public BookRaiting(int bookId, int numberOfReviews, String mark) {
+    public BookRaiting(int bookId, int numberOfReviews, String mark, String name) {
         this.bookId = bookId;
         this.numberOfReviews = numberOfReviews;
         this.mark = mark;
+        this.name = name;
     }
 
     public int getId() {
@@ -48,7 +51,14 @@ public class BookRaiting {
         return mark;
     }
 
-    public void setMark(String mark) {
-        this.mark = mark;
+    public void setMark(String name) {
+        this.name = name;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
