@@ -67,12 +67,12 @@
         }
     </style>
 </head>
-<body class="background" background="книги.jpeg">
+<body class="background" background="ForKids.jpg">
 
 <ul class="menu-bar">
     <li><a href="/mainPage">Главная</a></li>
     <li><a href="/whatToRead">Что почитать</a></li>
-    <li><a href="genre.html">Жанры</a></li>
+    <li><a href="/genre">Жанры</a></li>
     <li><a href="/forKids">Для детей</a></li>
     <li><a href="/search">Поиск</a></li>
     <li><a href="main.jsp">Профиль</a></li>

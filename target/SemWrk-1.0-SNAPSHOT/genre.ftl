@@ -77,24 +77,34 @@
     <li><a href="/search">Поиск</a></li>
     <li><a href="main.jsp">Профиль</a></li>
 </ul>
+
+
 <div style="color: white;
 position: absolute;
             top: 20%;
             left: auto;
             padding: 10px;">
+    <form action="genre" method="post">
+        <input name="ganre"  type="text" placeholder="Выберите жанр" list="ganres">
+        <datalist id="ganres">
+            <option>Все</option>
+            <option>Роман</option>
+            <option>Повесть</option>
+        </datalist>
+    </form>
     <#list book as b>
         <p><img width="100" height="100" src="bookPng.png"></p>
-        BookId:
-        <a>${b.bookId}</a>
+        Автор:
+        <a>${b.author}</a>
         <br>
         Название:
         <a>${b.name}</a>
         <br>
-        Кол-во отзывов:
-        <a>${b.numberOfReviews}</a>
+        Жанр:
+        <a>${b.ganre}</a>
         <br>
-        Рейтинг:
-        <a>${b.mark}</a>
+        Описание:
+        <a>${b.description}</a>
         <br>
     </#list>
 </div>
