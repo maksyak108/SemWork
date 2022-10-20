@@ -85,8 +85,8 @@ position: absolute;
             left: auto;
             padding: 10px;">
     <form action="genre" method="post">
-        <input name="ganre"  type="text" placeholder="Выберите жанр" list="ganres">
-        <datalist id="ganres">
+        <input name="genre"  type="text" placeholder="Выберите жанр" list="genres">
+        <datalist id="genres">
             <option>Все</option>
             <option>Роман</option>
             <option>Повесть</option>

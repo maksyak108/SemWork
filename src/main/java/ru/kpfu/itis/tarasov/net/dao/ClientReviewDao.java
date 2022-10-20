@@ -16,14 +16,14 @@ public class ClientReviewDao {
     private final Connection bookConnection = BookConnectionUtil.getConnection();
 
 
-    public void saveUserReview(String name, String review, String score, int bookId) {
+    public void saveUserReview(String name, String review, String score) {
         String sql = "INSERT into client_review(book_name, review, score) VALUES (?, ?, ?);";
-        String updateSql = "UPDATE book_raiting SET number_of_reviews = ?, mark = ? Where book_id = ?;";
+        String updateSql = "UPDATE book_raiting SET number_of_reviews = ?, mark = ? Where name = ?;";
         List<BookRaiting> bookRaitings = new BookRaitingDao().getinfo();
         double raiting = 0;
         int number = 0;
         for(int i = 0; i < bookRaitings.size(); i++){
-            if(bookRaitings.get(i).getBookId() == bookId){
+            if(bookRaitings.get(i).getName().equals(name)){
                 raiting = Double.parseDouble(bookRaitings.get(i).getMark());
                 number = bookRaitings.get(i).getNumberOfReviews();
             }
@@ -40,7 +40,7 @@ public class ClientReviewDao {
             PreparedStatement bookStatement = bookConnection.prepareStatement(updateSql);
             bookStatement.setInt(1, number);
             bookStatement.setString(2, String.valueOf(raiting));
-            bookStatement.setInt(3, bookId);
+            bookStatement.setString(3, name);
 
             bookStatement.executeUpdate();
         } catch (SQLException e) {
@@ -48,8 +48,8 @@ public class ClientReviewDao {
         }
     }
 
-    public String save(String name, String review, String score, int bookId){
-        saveUserReview(name, review, score, bookId);
+    public String save(String name, String review, String score){
+        saveUserReview(name, review, score);
         return "Review about " +  name + " saved";
     }
 }
