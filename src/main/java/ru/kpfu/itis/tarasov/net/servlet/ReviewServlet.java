@@ -7,6 +7,7 @@ import java.io.IOException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 @WebServlet(name = "reviewServlet", urlPatterns = "/review")
@@ -23,12 +24,8 @@ public class ReviewServlet extends HttpServlet {
         String name = req.getParameter("name");
         String review = req.getParameter("review");
         String score = req.getParameter("score");
-        String result = null;
-        result = new ClientReviewDao().save(name, review, score);
-        if(result != null){
-            resp.sendRedirect("profile.html");
-        }else {
-            resp.sendRedirect("404.html");
-        }
+        HttpSession httpSession = req.getSession();
+        new ClientReviewDao().saveUserReview(name, review, score, (String) httpSession.getAttribute("username"));
+        resp.sendRedirect("profile.html");
     }
 }

@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+<#include "background.ftl">
+
 <head>
     <title>What to read Page</title>
     <meta charset="UTF-8">
@@ -54,12 +56,6 @@
             box-shadow: 0px 3px 20px 0px black;
             transform: scale(1.2);
         }
-        .background{
-            background-size: cover;
-            background-position: center center;
-            background-attachment: fixed;
-
-        }
         body {
             margin: 0;
             padding: 0;
@@ -67,7 +63,7 @@
         }
     </style>
 </head>
-<body class="background" background="книги.jpeg">
+<body>
 
 <ul class="menu-bar">
     <li><a href="/mainPage">Главная</a></li>
@@ -82,6 +78,21 @@ position: absolute;
             top: 20%;
             left: auto;
             padding: 10px;">
+    <#list review as r>
+        Название книги:
+        <a>${r.book_name}</a>
+        <br>
+        Автор отзыва:
+        <a>${r.client_name}</a>
+        <br>
+        Отзыв:
+        <a>${r.review}</a>
+        <br>
+        Оценка:
+        <a>${r.score}</a>
+        <br>
+        <br>
+    </#list>
     <#list book as b>
         <p><img width="100" height="100" src="bookPng.png"></p>
         BookId:
@@ -96,6 +107,10 @@ position: absolute;
         Рейтинг:
         <a>${b.mark}</a>
         <br>
+        <form class="form" action="whatToRead" method="post">
+        <button class="btn" name="name" type="submit" value="${b.name}">Посмотреть отзывы</button>
+            <br>
+        </form>
     </#list>
 </div>
 

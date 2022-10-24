@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<#include "background.ftl">
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Search Page</title>
@@ -55,12 +56,7 @@
             box-shadow: 0px 3px 20px 0px black;
             transform: scale(1.2);
         }
-        .background{
-            background-size: cover;
-            background-position: center center;
-            background-attachment: fixed;
 
-        }
         body {
             margin: 0;
             padding: 0;
@@ -117,8 +113,7 @@
 
     </style>
 </head>
-<body class="background" background="книги.jpeg">
-
+<body>
 <ul class="menu-bar">
     <li><a href="/mainPage">Главная</a></li>
     <li><a href="/whatToRead">Что почитать</a></li>
@@ -148,7 +143,6 @@
     <br>
     Описание:
     <a>${book.description}</a>
-</div>
 </form>
 
 </body>

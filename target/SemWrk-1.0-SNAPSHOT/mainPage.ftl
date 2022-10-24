@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+<#include "background.ftl">
+
 <head>
     <title>Main Page</title>
     <meta charset="UTF-8">
@@ -54,12 +56,7 @@
             box-shadow: 0px 3px 20px 0px black;
             transform: scale(1.2);
         }
-        .background{
-            background-size: cover;
-            background-position: center center;
-            background-attachment: fixed;
 
-        }
         body {
             margin: 0;
             padding: 0;
@@ -67,7 +64,7 @@
         }
     </style>
 </head>
-<body class="background" background="книги.jpeg">
+<body>
 
 <ul class="menu-bar">
     <li><a href="/mainPage">Главная</a></li>
