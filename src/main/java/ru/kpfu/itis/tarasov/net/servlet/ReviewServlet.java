@@ -26,6 +26,6 @@ public class ReviewServlet extends HttpServlet {
         String score = req.getParameter("score");
         HttpSession httpSession = req.getSession();
         new ClientReviewDao().saveUserReview(name, review, score, (String) httpSession.getAttribute("username"));
-        resp.sendRedirect("profile.html");
+        resp.sendRedirect("main.jsp");
     }
 }

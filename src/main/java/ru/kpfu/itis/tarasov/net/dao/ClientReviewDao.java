@@ -80,4 +80,30 @@ public class ClientReviewDao {
             return null;
         }
     }
+
+    public List<Review> getClientReview(String name) {
+        try {
+            Statement statement = connection.createStatement();
+            String sql = "SELECT * from client_review";
+            ResultSet resultSet = statement.executeQuery(sql);
+
+            List<Review> reviews = new ArrayList<>();
+            Review review = null;
+            while (resultSet.next()) {
+                review = new Review(
+                        resultSet.getInt("id"),
+                        resultSet.getString("book_name"),
+                        resultSet.getString("review"),
+                        resultSet.getInt("score"),
+                        resultSet.getString("client_name")
+                );
+                if(review.getClient_name().equals(name)) {
+                    reviews.add(review);
+                }
+            }
+            return reviews;
+        } catch (SQLException e) {
+            return null;
+        }
+    }
 }
