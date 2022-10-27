@@ -106,4 +106,45 @@ public class ClientReviewDao {
             return null;
         }
     }
+
+    public void deleteUserReview(String name, String score, String client_name) {
+        String sql = "DELETE FROM client_review where client_name = ? and book_name = ?;";
+        String updateSql = "UPDATE book_raiting SET number_of_reviews = ?, mark = ? Where name = ?;";
+        List<BookRaiting> bookRaitings = new BookRaitingDao().getinfo();
+        for (int o = 0; o < bookRaitings.size(); o++) {
+            if (bookRaitings.get(o).getName().equals(name)) {
+                double raiting = 0;
+                int number = 0;
+                for (int i = 0; i < bookRaitings.size(); i++) {
+                    if (bookRaitings.get(i).getName().equals(name)) {
+                        raiting = Double.parseDouble(bookRaitings.get(i).getMark());
+                        number = bookRaitings.get(i).getNumberOfReviews();
+                    }
+                }
+                if(number == 1){
+                    number = 0;
+                    raiting = 0;
+                }else {
+
+                    raiting = (raiting * number - Integer.parseInt(score)) / (number - 1);
+                    number -= 1;
+                }
+                try {
+                    PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                    preparedStatement.setString(1, client_name);
+                    preparedStatement.setString(2, name);
+                    preparedStatement.executeUpdate();
+
+                    PreparedStatement bookStatement = bookConnection.prepareStatement(updateSql);
+                    bookStatement.setInt(1, number);
+                    bookStatement.setString(2, String.valueOf(raiting));
+                    bookStatement.setString(3, name);
+
+                    bookStatement.executeUpdate();
+                } catch (SQLException e) {
+                    LOGGER.warn("Failed execute save query", e);
+                }
+            }
+        }
+    }
 }

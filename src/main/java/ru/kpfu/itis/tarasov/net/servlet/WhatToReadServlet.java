@@ -1,9 +1,7 @@
 package ru.kpfu.itis.tarasov.net.servlet;
 
-import ru.kpfu.itis.tarasov.net.dao.BookDao;
 import ru.kpfu.itis.tarasov.net.dao.BookRaitingDao;
 import ru.kpfu.itis.tarasov.net.dao.ClientReviewDao;
-import ru.kpfu.itis.tarasov.net.model.Book;
 import ru.kpfu.itis.tarasov.net.model.Review;
 
 import javax.servlet.ServletException;

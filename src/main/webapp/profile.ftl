@@ -148,6 +148,10 @@
         Оценка:
         <a>${r.score}</a>
         <br>
+        <form class="form" action="profile" method="post">
+            <button class="btn" name="info" type="submit" value="${r.book_name} ${r.score}">Удалить отзыв</button>
+            <br>
+        </form>
         <br>
     </#list>
 </div>
