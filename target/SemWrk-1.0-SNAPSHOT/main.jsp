@@ -1,6 +1,4 @@
 <%@ page import="ru.kpfu.itis.tarasov.net.dao.PasswordDao" %>
-<%@ page import="ru.kpfu.itis.tarasov.net.model.Review" %>
-<%@ page import="java.util.List" %>
 <%@ page import="ru.kpfu.itis.tarasov.net.dao.ClientReviewDao" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>

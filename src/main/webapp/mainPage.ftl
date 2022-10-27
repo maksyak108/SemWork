@@ -80,7 +80,8 @@ position: absolute;
             left: auto;
             padding: 10px;">
     <#list book as b>
-        <p><img width="100" height="100" src="bookPng.png"></p>
+        <A HREF="BooksPDF\${b.name}.pdf"><p><img width="100" height="100" src="bookPng.png"></p></A>
+        <br>
         Автор:
         <a>${b.author}</a>
         <br>

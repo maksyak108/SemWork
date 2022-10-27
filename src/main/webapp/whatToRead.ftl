@@ -94,7 +94,8 @@ position: absolute;
         <br>
     </#list>
     <#list book as b>
-        <p><img width="100" height="100" src="bookPng.png"></p>
+        <A HREF="BooksPDF\${b.name}.pdf"><p><img width="100" height="100" src="bookPng.png"></p></A>
+        <br>
         BookId:
         <a>${b.bookId}</a>
         <br>
